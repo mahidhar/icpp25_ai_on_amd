@@ -62,3 +62,25 @@ We can test as before once the environment is active.
 python -c 'import torch; print("I have this many devices:", torch.cuda.device_count())'
 ```
 
+### Install in a conda environment 
+
+Start by installing a base miniconda3 setup.
+
+```
+module load rocm
+unset PYTHONSTARTUP
+curl -LO https://repo.anaconda.com/miniconda/Miniconda3-py310_24.1.2-0-Linux-x86_64.sh
+bash ./Miniconda3-* -b -p miniconda3 -s
+source ./miniconda3/bin/activate base
+```
+Create a conda environment for tensorflow and pip install the version matching available rocm.
+```
+conda create -y -n tensorflow python=3.10
+conda activate tensorflow
+pip install --user tensorflow-rocm==2.16.2 –f https://repo.radeon.com/rocm/manylinux/rocm-rel-6.3/
+python -c 'from tensorflow.python.client import device_lib ; device_lib.list_local_devices()'
+```
+
+
+
+

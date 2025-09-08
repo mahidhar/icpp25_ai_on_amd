@@ -1,4 +1,4 @@
-## AI on AMD
+# AI with the AMD Software Stack
 
 ## Agenda
 ### Session 1 - 11:00-12:30 Introduction to the AMD AI Framework 

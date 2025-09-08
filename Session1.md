@@ -41,6 +41,6 @@ Do a quick test of the container (more tests in the next session).
 ```
 module load singularitypro
 singularity shell --rocm --bind /scratch,/home,/cosmos pytorch-latest.sif
-python -c 'import torch; print("I have this many devices:", torch.cuda.device_count())’
+python -c 'import torch; print("I have this many devices:", torch.cuda.device_count())'
 exit
 ```

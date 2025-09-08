@@ -1,6 +1,4 @@
-# AI and Scientific Research Computing with Kubernetes Tutorial
-
-AI with the AMD Software Stack
+# AI with the AMD Software Stack
 Session 1 Hands On
 
 ## Login

@@ -1,4 +1,4 @@
-## AI and Scientific Research Computing with Kubernetes Tutorial
+# AI with the AMD Software Stack
 Session 2 Hands On 
 
 ### Simple PyTorch Example using Containers

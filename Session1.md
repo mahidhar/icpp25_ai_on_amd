@@ -44,3 +44,21 @@ singularity shell --rocm --bind /scratch,/home,/cosmos pytorch-latest.sif
 python -c 'import torch; print("I have this many devices:", torch.cuda.device_count())'
 exit
 ```
+
+### Install using virtual env and the system python
+
+Start by loading the Cray python module on Cosmos. We can then create a virtual environment and pip install the correct version based on the available rocm on Cosmos. 
+
+```
+module load cray-python
+module load rocm
+python -m venv --system-site-packages cray-python-virtualenv
+source cray-python-virtualenv/bin/activate
+pip3 install --pre torch==2.8.0+rocm6.3 --index-url https://download.pytorch.org/whl/
+```
+We can test as before once the environment is active.
+
+```
+python -c 'import torch; print("I have this many devices:", torch.cuda.device_count())'
+```
+

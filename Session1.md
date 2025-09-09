@@ -76,7 +76,7 @@ Create a conda environment for tensorflow and pip install the version matching a
 ```
 conda create -y -n tensorflow python=3.10
 conda activate tensorflow
-pip install --user tensorflow-rocm==2.16.2 –f https://repo.radeon.com/rocm/manylinux/rocm-rel-6.3/
+pip install --user tensorflow-rocm==2.16.2 -f https://repo.radeon.com/rocm/manylinux/rocm-rel-6.3/
 python -c 'from tensorflow.python.client import device_lib ; device_lib.list_local_devices()'
 ```
 

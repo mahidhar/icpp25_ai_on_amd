@@ -53,7 +53,7 @@ module load cray-python
 module load rocm
 python -m venv --system-site-packages cray-python-virtualenv
 source cray-python-virtualenv/bin/activate
-pip3 install --pre torch==2.8.0+rocm6.3 --index-url https://download.pytorch.org/whl/
+pip3 install --no-cache-dir --pre torch==2.8.0+rocm6.3 --index-url https://download.pytorch.org/whl/
 ```
 We can test as before once the environment is active.
 

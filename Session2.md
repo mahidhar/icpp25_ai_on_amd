@@ -84,3 +84,19 @@ module load rocm
 python tf-test.py
 ```
 The tf-test.py is in this repository and is based on an AMD example.
+
+### Jax Example using container
+
+For the Jax example we go back to the container approach. There is one already downloaded and converted to Singularity image in the train101 directory. In Thursday's tutorial there will be more in depth use of Jax (pip based installed in that case).
+```
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --exclusive
+#SBATCH --time=00:05:00
+#SBATCH --output=jax.%j.out
+#SBATCH --error=jax.%j.err
+
+unset PYTHONSTARTUP
+module load singularitypro
+singularity exec --bind /cosmos,/home,/scratch /cosmos/vast/scratch/train101/icpp2025/containers/jax-latest.sif python jax-test.py
+```

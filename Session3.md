@@ -4,7 +4,7 @@ Session 3 Hands On
 ## Profiling Examples
 We will be using AMD's examples. Start by cloning:
 ```
-git https://github.com/amd/HPCTrainingExamples
+git clone https://github.com/amd/HPCTrainingExamples
 cd HPCTrainingExamples/MLExamples/PyTorch_Profiling
 ```
 In the setup.sh file replace the module load command with these lines:

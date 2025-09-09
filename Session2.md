@@ -51,13 +51,14 @@ Lets do the same example but using the our install using the system python
 cd /cosmos/vast/scratch/$USER/examples/mnist
 module load cray-python
 module load rocm
-source /cosmos/vast/scratch/train101/icpp2025/cray-python-virtualenv/bin/activate
+source /cosmos/vast/scratch/$USER/cray-python-virtualenv/bin/activate
 python main.py
 ```
 Save the above script in python-sys.sb and submit it.
 ```
 sbatch python-sys.sb
 ```
+Did that work? Maybe we are missing a module. See if you can install the right combination using pip and make this work!
 
 ### Simple TensorFlow script using our conda based install
 We will use the install that is already in the train101 account. You are welcome to try your own install (make sure you do it in the VAST directory and not your home directory).

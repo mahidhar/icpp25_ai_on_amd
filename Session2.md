@@ -35,7 +35,7 @@ singularity exec --bind /cosmos,/home,/scratch /cosmos/vast/scratch/train101/icp
 ```
 Now we can submit the job to queue and use the squeue command to check its status
 ```
-sbatch pytorch.sb
+sbatch --res=ICPP25Day1 pytorch.sb
 squeue -u $USER
 ```
 ### Simple PyTorch Example using system python modules and pip based install
@@ -56,7 +56,7 @@ python main.py
 ```
 Save the above script in python-sys.sb and submit it.
 ```
-sbatch python-sys.sb
+sbatch --res=ICPP25Day1 python-sys.sb
 ```
 Did that work? Maybe we are missing a module. See if you can install the right combination using pip and make this work!
 
@@ -83,7 +83,10 @@ module load rocm
 ### Run the job
 python tf-test.py
 ```
-The tf-test.py is in this repository and is based on an AMD example.
+The tf-test.py is in this repository and is based on an AMD example. Paste above script into tf-test.sb file and submit the job:
+```
+sbatch  --res=ICPP25Day1 tf-test.sb
+```
 
 ### Jax Example using container
 
@@ -99,4 +102,8 @@ For the Jax example we go back to the container approach. There is one already d
 unset PYTHONSTARTUP
 module load singularitypro
 singularity exec --bind /cosmos,/home,/scratch /cosmos/vast/scratch/train101/icpp2025/containers/jax-latest.sif python jax-test.py
+```
+Paste above script into jax-test.sb and submit the job:
+```
+ sbatch --res=ICPP25Day1 jax-test.sb
 ```

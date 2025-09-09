@@ -53,7 +53,7 @@ module load cray-python
 module load rocm
 source /cosmos/vast/scratch/train101/icpp2025/cray-python-virtualenv/bin/activate
 python main.py
-``
+```
 Save the above script in python-sys.sb and submit it.
 ```
 sbatch python-sys.sb

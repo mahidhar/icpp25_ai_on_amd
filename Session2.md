@@ -10,7 +10,7 @@ cd examples/mnist
 ```
 Try an interactive job first (make sure you are in the mnist directory before these steps):
 ```
-srun --pty --nodes=1 -t 00:30:00 --exclusive --reservation=ICPP25Day1 /bin/bash
+srun --pty --nodes=1 -t 00:30:00 --exclusive --reservation=ICPP2025Day1 /bin/bash
 unset PYTHONSTARTUP
 module load singularitypro
 singularity exec --bind /cosmos,/home,/scratch /cosmos/vast/scratch/train101/icpp2025/containers/pytorch-latest.sif python main.py
@@ -35,7 +35,7 @@ singularity exec --bind /cosmos,/home,/scratch /cosmos/vast/scratch/train101/icp
 ```
 Now we can submit the job to queue and use the squeue command to check its status
 ```
-sbatch --res=ICPP25Day1 pytorch.sb
+sbatch --res=ICPP2025Day1 pytorch.sb
 squeue -u $USER
 ```
 ### Simple PyTorch Example using system python modules and pip based install
@@ -56,7 +56,7 @@ python main.py
 ```
 Save the above script in python-sys.sb and submit it.
 ```
-sbatch --res=ICPP25Day1 python-sys.sb
+sbatch --res=ICPP2025Day1 python-sys.sb
 ```
 Did that work? Maybe we are missing a module. See if you can install the right combination using pip and make this work!
 
@@ -85,7 +85,7 @@ python tf-test.py
 ```
 The tf-test.py is in this repository and is based on an AMD example. Paste above script into tf-test.sb file and submit the job:
 ```
-sbatch  --res=ICPP25Day1 tf-test.sb
+sbatch  --res=ICPP2025Day1 tf-test.sb
 ```
 
 ### Jax Example using container

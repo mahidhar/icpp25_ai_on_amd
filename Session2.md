@@ -38,6 +38,27 @@ Now we can submit the job to queue and use the squeue command to check its statu
 sbatch pytorch.sb
 squeue -u $USER
 ```
+### Simple PyTorch Example using system python modules and pip based install
+Lets do the same example but using the our install using the system python
+```
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --exclusive
+#SBATCH --time=00:30:00
+#SBATCH --output=pytorch-syspython.%j.out
+#SBATCH --error=pytorch-syspython.%j.err
+
+cd /cosmos/vast/scratch/$USER/examples/mnist
+module load cray-python
+module load rocm
+source /cosmos/vast/scratch/train101/icpp2025/cray-python-virtualenv/bin/activate
+python main.py
+``
+Save the above script in python-sys.sb and submit it.
+```
+sbatch python-sys.sb
+```
+
 ### Simple TensorFlow script using our conda based install
 We will use the install that is already in the train101 account. You are welcome to try your own install (make sure you do it in the VAST directory and not your home directory).
 ```

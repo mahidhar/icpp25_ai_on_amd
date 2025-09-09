@@ -38,4 +38,27 @@ Now we can submit the job to queue and use the squeue command to check its statu
 sbatch pytorch.sb
 squeue -u $USER
 ```
+### Simple TensorFlow script using our conda based install
+We will use the install that is already in the train101 account. You are welcome to try your own install (make sure you do it in the VAST directory and not your home directory).
+```
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --exclusive
+#SBATCH --time=00:30:00
+#SBATCH --output=tf.%j.out
+#SBATCH --error=tf.%j.err
 
+### Unset the system startup
+unset PYTHONSTARTUP
+
+### Setup conda environment
+. /cosmos/vast/scratch/train101/icpp2025/miniconda3/etc/profile.d/conda.sh
+conda activate tensorflow
+
+### Load the rocm module
+module load rocm
+
+### Run the job
+python tf-test.py
+```
+The tf-test.py is in this repository and is based on an AMD example.

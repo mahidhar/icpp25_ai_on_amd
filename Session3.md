@@ -31,7 +31,7 @@ python train_cifar_100.py --download-only --data-path data
 
 Copy the slurm_noprofiling.sb file to the HPCTrainingExamples/MLExamples/PyTorch_Profiling/no-profiling directory and submit it.
 ```
-sbatch --res=ICPP25Day1 slurm_noprofiling.sb
+sbatch --res=ICPP2025Day1 slurm_noprofiling.sb
 ```
 Inspect the output and see how the example is performing. The slurm script is set up to use all 4 APUs on the node.
 
@@ -39,7 +39,7 @@ Inspect the output and see how the example is performing. The slurm script is se
 
 Copy the slurm_pytorch_profile.sb file to the HPCTrainingExamples/MLExamples/PyTorch_Profiling/torch-profiler directory and submit it.
 ```
-sbatch --res=ICPP25Day1 slurm_pytorch_profile.sb
+sbatch --res=ICPP2025Day1 slurm_pytorch_profile.sb
 ```
 Once the job completes you will see summary statistics in the output file and a json file will be created. Download this json file to your laptop. You can go to the following site and open it.
 ```
@@ -49,7 +49,7 @@ https://ui.perfetto.dev/
 
 Copy the slurm_rocprofv3.sb file to the HPCTrainingExamples/MLExamples/PyTorch_Profiling/rocprofv3 directory and submit it.
 ```
-sbatch --res=ICPP25Day1 slurm_rocprofv3.sb
+sbatch --res=ICPP2025Day1 slurm_rocprofv3.sb
 ```
 Once this run completes you should see a directory labeled after the node used and it will contain a lot of csv files with details. We can download them to the laptop and examine them.
 

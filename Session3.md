@@ -55,6 +55,22 @@ Once this run completes you should see a directory labeled after the node used a
 
 ## RCCL Benchmarks
 
+Download and build the tests (need to do this on a compute node)
 
-
+```
+module load rocm
+git clone https://github.com/ROCmSoftwarePlatform/rccl-tests.git
+cd rccl-tests
+export MPI_HOME=/opt/cray/pe/mpich/8.1.30/ofi/cray/17.0
+export ROCM_PATH=/opt/rocm-6.3.0
+export MPI=1
+export NCCL_HOME=/cosmos/vast/scratch/train101/icpp2025/rccl/build
+make -j4
+```
+Once the builds are done, copy over the rccl submit scripts from this repository and modify them to use your build. Note that the original RCCL install should still point to the train101 location (that build takes hours!).
+```
+sbstch --res=ICPP2025Day1 rccl-test-1node-normal.sb
+sbatch --res=ICPP2025Day1 rccl-test-1node-verbose.sb
+```
+The verbose run will give many details and we can inspect the output to check the parameters logged.
 

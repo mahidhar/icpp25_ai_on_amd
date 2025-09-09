@@ -25,9 +25,9 @@ We will use the VAST based scratch filesystem for all our tests. Change to the l
 cd /cosmos/vast/scratch/$USER
 ```
 
-## Build a container from a docker image
+## Build a PyTorch container from a docker image
 
-We will set the TMPDIR to the node local NVMe scratch space and then build the container.
+We will load the singularity module, set the TMPDIR to the node local NVMe scratch space, and then build the container.
 
 ```
 module load singularitypro
@@ -38,13 +38,12 @@ singularity build pytorch-latest.sif docker://rocm/pytorch:latest
 Do a quick test of the container (more tests in the next session). 
 
 ```
-module load singularitypro
 singularity shell --rocm --bind /scratch,/home,/cosmos pytorch-latest.sif
 python -c 'import torch; print("I have this many devices:", torch.cuda.device_count())'
 exit
 ```
 
-### Install using virtual env and the system python
+### Install PyTorch using virtual env and the system python
 
 Start by loading the Cray python module on Cosmos. We can then create a virtual environment and pip install the correct version based on the available rocm on Cosmos. 
 
@@ -61,7 +60,7 @@ We can test as before once the environment is active.
 python -c 'import torch; print("I have this many devices:", torch.cuda.device_count())'
 ```
 
-### Install in a conda environment 
+### Install Tensorflow in a conda environment 
 
 Start by installing a base miniconda3 setup.
 

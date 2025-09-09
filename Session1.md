@@ -30,7 +30,7 @@ cd /cosmos/vast/scratch/$USER
 We will set the TMPDIR to the node local NVMe scratch space and then build the container.
 
 ```
-export TMPDIR=/scratch/train101/job_$SLURM_JOBID
+export TMPDIR=/scratch/$USER/job_$SLURM_JOBID
 singularity build pytorch-latest.sif docker://rocm/pytorch:latest
 ```
 
